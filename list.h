@@ -65,3 +65,10 @@ void list_insert_tail(struct list_hdr *head, struct list_hdr *entry);
  */
 void list_insert(struct list_hdr *head, struct list_hdr *entry);
 
+/**
+ * Delete an entry from a list.
+ *
+ * @param entry The entry to delete
+ */
+void list_delete(const struct list_hdr *entry);
+

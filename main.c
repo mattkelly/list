@@ -39,6 +39,13 @@ int main()
     list_print(&list);
     printf("list empty: %u\n", list_empty(&list.hdr));
 
+    for (i = 0; i < 10; ++i)
+    {
+        list_delete(&new_entries[i].hdr);
+    }
+    list_print(&list);
+    printf("list empty: %u\n", list_empty(&list.hdr));
+
     return EXIT_SUCCESS;
 }
 
