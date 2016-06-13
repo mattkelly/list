@@ -1,3 +1,6 @@
+/**
+ * Circular doubly-linked generic list implementation.
+ */
 #include "list.h"
 
 #include <stdlib.h>
