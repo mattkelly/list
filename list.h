@@ -24,5 +24,10 @@ void list_init(struct list_hdr *hdr);
 /**
  * @TODO
  */
-void list_insert_tail(struct list_hdr *list, struct list_hdr *entry);
+void list_insert_tail(struct list_hdr *head, struct list_hdr *entry);
+
+/**
+ * @TODO
+ */
+void list_insert(struct list_hdr *head, struct list_hdr *entry);
 

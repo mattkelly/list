@@ -27,13 +27,11 @@ int main()
 
     list_init(&list.hdr);
 
-    list_print(&list);
-
     struct my_list new_entries[10];
     for (i = 0; i < 10; ++i)
     {
         new_entries[i].data = i;
-        list_insert_tail(&list.hdr, &new_entries[i].hdr);
+        list_insert(&list.hdr, &new_entries[i].hdr);
     }
 
     list_print(&list);

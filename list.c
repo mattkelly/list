@@ -15,12 +15,25 @@ void list_insert_tail(struct list_hdr *head, struct list_hdr *entry)
         return;
     }
 
-    if (head->next == head) {
-        // List is empty
-    }
-    entry->next = head;
-    entry->prev = head->prev;
+    struct list_hdr * const tail = head->prev;
 
-    head->prev->next = entry;
+    entry->next = head;
+    entry->prev = tail->prev;
+
+    tail->next = entry;
     head->prev = entry;
 }
+
+void list_insert(struct list_hdr *head, struct list_hdr *entry)
+{
+    if (NULL == head || NULL == entry)
+    {
+        return;
+    }
+
+    entry->next = head->next;
+    entry->prev = head;
+
+    head->next = entry;
+}
+
