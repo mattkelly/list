@@ -3,12 +3,15 @@
  */
 #include "list.h"
 
-#include <stdlib.h>
-
 void list_init(struct list_hdr *head)
 {
     head->next = head;
     head->prev = head;
+}
+
+bool list_empty(struct list_hdr *head)
+{
+    return head->next == head;
 }
 
 void list_insert_tail(struct list_hdr *head, struct list_hdr *entry)

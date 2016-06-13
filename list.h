@@ -3,6 +3,7 @@
  */
 #pragma once
 
+#include <stdbool.h>
 #include <stddef.h>
 #include <stdlib.h>
 
@@ -40,6 +41,14 @@ struct list_hdr {
  * @param head Head of the new list
  */
 void list_init(struct list_hdr *head);
+
+/**
+ * Check if a list is empty.
+ *
+ * @param head Head of the list
+ * @return true if empty, else false
+ */
+bool list_empty(struct list_hdr *head);
 
 /**
  * Insert a new entry just past the list tail (just before the head).

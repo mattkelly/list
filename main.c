@@ -27,6 +27,8 @@ int main()
 
     list_init(&list.hdr);
 
+    printf("list empty: %u\n", list_empty(&list.hdr));
+
     struct my_list new_entries[10];
     for (i = 0; i < 10; ++i)
     {
@@ -35,6 +37,7 @@ int main()
     }
 
     list_print(&list);
+    printf("list empty: %u\n", list_empty(&list.hdr));
 
     return EXIT_SUCCESS;
 }
