@@ -32,11 +32,47 @@ struct list_hdr {
 #define list_entry(hdr, type, member) \
     container_of(hdr, type, member)
 
+/**
+ * Iterate over a list.
+ *
+ * @param head Pointer to the head of the list
+ * @param pos Pointer to current element in list (entry type, not list_hdr type)
+ */
 #define list_for_each(head, pos) \
     for (pos = (head)->next; (pos) != (head); (pos) = (pos)->next)
 
+/**
+ * Iterate over a list with safety against deleting current item.
+ *
+ * @param head Pointer to the head of the list
+ * @param pos Pointer to current element in list (entry type, not list_hdr type)
+ * @param n Another position pointer for temporary storage
+ */
+#define list_for_each_safe(head, pos, n) \
+    for (pos = (head)->next, n = (pos)->next; \
+        (pos) != (head); \
+        (pos) = n, n = (pos)->next)
+
+/**
+ * Iterate over a list backwards.
+ *
+ * @param head Pointer to the head of the list
+ * @param pos Pointer to current element in list (entry type, not list_hdr type)
+ */
 #define list_for_each_prev(head, pos) \
     for (pos = (head)->prev; (pos) != (head); (pos) = (pos)->prev)
+
+/**
+ * Iterate over a list backwards with safety against deleting current item.
+ *
+ * @param head Pointer to the head of the list
+ * @param pos Pointer to current element in list (entry type, not list_hdr type)
+ * @param p Another position pointer for temporary storage
+ */
+#define list_for_each_prev_safe(head, pos, p) \
+    for (pos = (head)->prev, p = (pos)->prev; \
+        (pos) != (head); \
+        (pos) = p, p = (pos)->prev)
 
 /**
  * Initialize a new list.

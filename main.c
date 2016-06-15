@@ -8,6 +8,16 @@ struct my_list {
     int data;
 };
 
+void list_delete_all(struct list_hdr *head)
+{
+    struct list_hdr *pos, *tmp;
+
+    list_for_each_safe(head, pos, tmp)
+    {
+        list_delete(pos);
+    }
+}
+
 void list_print(struct my_list *list)
 {
     struct list_hdr *pos;
@@ -39,10 +49,8 @@ int main()
     list_print(&list);
     printf("list empty: %u\n", list_empty(&list.hdr));
 
-    for (i = 0; i < 10; ++i)
-    {
-        list_delete(&new_entries[i].hdr);
-    }
+    list_delete_all(&list.hdr);
+
     list_print(&list);
     printf("list empty: %u\n", list_empty(&list.hdr));
 
