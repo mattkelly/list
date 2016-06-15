@@ -35,6 +35,9 @@ struct list_hdr {
 #define list_for_each(head, pos) \
     for (pos = (head)->next; (pos) != (head); (pos) = (pos)->next)
 
+#define list_for_each_prev(head, pos) \
+    for (pos = (head)->prev; (pos) != (head); (pos) = (pos)->prev)
+
 /**
  * Initialize a new list.
  *
