@@ -9,5 +9,6 @@ mkdir build
 cd build
 cmake ..
 make
+make test # use "ctest -V" instead for verbose test output
 ```
 
