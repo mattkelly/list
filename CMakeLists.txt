@@ -1,6 +1,8 @@
 cmake_minimum_required(VERSION 2.6)
 project(list)
 
+set(CMAKE_C_FLAGS "-Wall -Werror")
+
 include_directories(src)
 
 add_executable(main src/list.c src/main.c)
